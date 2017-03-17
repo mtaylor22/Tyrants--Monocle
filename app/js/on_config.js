@@ -19,7 +19,7 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
     })
     .state('Nav', {
       url: '/nav',
-      controller: 'NavCtrl as nav',
+      controller: 'NavCtrl',
       templateUrl: 'nav.html',
       title: 'Nav'
     });

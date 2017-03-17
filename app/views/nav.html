@@ -1,27 +1,113 @@
 <div class="container">
   <div class="row row-centered">
-    <div class="col-xs-12 col-centered">
-      <h1 class="header-title">Tyrant's Monocle</h1>
+    <div class="col-xs-12 col-centered header-title">
+      Tyrant's Monocle <img style="margin-left: 20px; width:300px; height:100px;" src="/images/tyrants-monocle.png">
     </div>
   </div>
   <div class="row row-centered">
-    <div class="col-xs-6 col-centered">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
       <div class="nav-block-container">
         <div class="nav-block-header">
-          Live Matches
+          Recent Matches
         </div>
         <div class="nav-block-footer">
-          Sample matches
+          <table class="match-table">
+            <tr ng-repeat="match in matches">
+              <td>
+                <span class="match-started">{{match.startedAgo}}m ago </span>
+              </td>
+              <td>
+                <span class="match-mode">{{match.mode}}</span>
+              </td>
+              <td>
+                <span class="match-player" ng-repeat="player in match.players[0]">
+                  {{player.actor|vgLookup}} ({{player.player}}){{$last ? '' : ', '}}<br>
+                </span>
+              </td>
+              <td>
+                <span class="match-vs"> VS </span>
+              </td>
+              <td>
+                <span class="match-player" ng-repeat="player in match.players[1]">
+                  {{player.actor|vgLookup}} ({{player.player}}){{$last ? '' : ', '}}<br>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-    <div class="col-xs-6 col-centered">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
       <div class="nav-block-container">
         <div class="nav-block-header">
           Simulate a Match
         </div>
         <div class="nav-block-footer">
-          Sample matches
+          <img ng-repeat="actor in actors" ng-src="/images/actors/{{actor}}.png" class="actor-image">
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Match Lookup
+        </div>
+        <div class="nav-block-footer">
+          <table class="match-lookup-table" style="width:100%;">
+            <tr>
+              <td colspan="2">
+                <h2 style="margin:0; padding:0;">Lookup a Match by ID</h2>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>
+                  Enter a match id number to gather view prediction results and match insights!
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="form-control" placeholder="Match ID#">
+              </td>
+              <td>
+                <button class="btn btn-primary">Lookup</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Player Lookup
+        </div>
+        <div class="nav-block-footer">
+
+          <table class="match-lookup-table" style="width:100%;">
+            <tr>
+              <td colspan="2">
+                <h2 style="margin:0; padding:0;">Lookup a Player by ID</h2>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <p>
+                  Enter a player id number to gather view prediction results and match insights!
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" class="form-control" placeholder="Player ID#">
+              </td>
+              <td>
+                <button class="btn btn-primary">Lookup</button>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

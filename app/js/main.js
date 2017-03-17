@@ -19,6 +19,7 @@ const requires = [
   'app.controllers',
   'app.services',
   'app.directives'
+  // 'ngResource'
 ];
 
 // mount on window for testing
