@@ -5,11 +5,13 @@ import constants from './constants';
 import onConfig  from './on_config';
 import onRun     from './on_run';
 import 'angular-ui-router';
+import 'ng-resource';
 import './templates';
 import './filters';
 import './controllers';
 import './services';
 import './directives';
+import 'angularjs-gauge';
 
 // create and bootstrap application
 const requires = [
@@ -18,8 +20,9 @@ const requires = [
   'app.filters',
   'app.controllers',
   'app.services',
-  'app.directives'
-  // 'ngResource'
+  'app.directives',
+  require('angular-resource'),
+  'angularjs-gauge'
 ];
 
 // mount on window for testing

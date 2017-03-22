@@ -12,7 +12,7 @@
         </div>
         <div class="nav-block-footer">
           <table class="match-table">
-            <tr ng-repeat="match in matches">
+            <tr ng-repeat="match in matches" ng-click="openMatch(match.id);">
               <td>
                 <span class="match-started">{{match.startedAgo}}m ago </span>
               </td>

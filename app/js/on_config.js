@@ -22,6 +22,12 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       controller: 'NavCtrl',
       templateUrl: 'nav.html',
       title: 'Nav'
+    })
+    .state('Match', {
+      url: '/match/:matchId',
+      controller: 'MatchCtrl',
+      templateUrl: 'match.html',
+      title: 'Match'
     });
 
   $urlRouterProvider.otherwise('/');

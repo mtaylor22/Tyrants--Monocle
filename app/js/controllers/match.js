@@ -1,25 +1,18 @@
 angular.module('app.controllers')
-  .controller('NavCtrl', NavCtrl);
+  .controller('MatchCtrl', MatchCtrl);
 
   /* @ngInject */
-function NavCtrl($scope, $state, $resource) {
+function MatchCtrl($scope, $stateParams, $resource) {
   // ViewModel
   const vm = this;
   vm.title = 'Tyrant\'s Monocle!';
   $scope.actors = ['adagio', 'celeste', 'idris', 'lyra', 'rona', 'vox', 'alpha', 'flicker', 'joule', 'ozo', 'samuel', 'ardan', 'fortress', 'kestrel', 'petal', 'saw', 'baron', 'glaive', 'koshka', 'phinn', 'skaarf', 'blackfeather', 'grumpjaw', 'krul', 'reim', 'skye', 'catherine', 'gwen', 'lance', 'ringo', 'taka'];
-
-  $scope.openMatch = function(matchId){
-    $state.go('Match', {matchId: matchId});
-  };
-
+  var matchId = $stateParams.matchId;
   $scope.getMatches = function(){
-    // var matches = $resource('/echo/json/:fakeOptionalParameter');
-
-    var Match = $resource('http://localhost:8000/match');
+    var Match = $resource('http://localhost:8000/match/:matchId');
     var match = new Match();
-    match.$get(function(response){
+    match.$get({matchId: matchId}, function(response){
       $scope.matches = _.map(response.matches, function(match){
-
         // teams =>
         return {
           players: _.map(match.teams, function(team){
@@ -33,12 +26,31 @@ function NavCtrl($scope, $state, $resource) {
           id: match.id,
           mode: getGameMode(match.gameMode),
           start: match.started,
-          startedAgo:moment().diff(moment(match.started), 'minutes')
+          winner: (match.teams[0].won) ? 0: 1,
+          startedAgo:moment().diff(moment(match.started), 'minutes'),
+          matches: response.matches,
+          prediction: response.prediction,
+          prettyPrediction: {
+            a: Math.floor(response.prediction.a * 10000)/100,
+            b: Math.floor(response.prediction.b * 10000)/100
+          }
         };
       });
+      $scope.players = {};
+      _.each(response.matches[0].teams, function(team){
+          _.each(team.players, function (player) {
+            $scope.players[player.actor] = player;
+          });
+      });
+      var firstPlayer = Object.keys($scope.players)[0];
+      $scope.selectedPlayer = $scope.players[firstPlayer];
     });
+
   };
   $scope.getMatches();
+  $scope.selectPlayer = function(actor){
+    $scope.selectedPlayer = $scope.players[actor];
+  };
 }
 
 function getGameMode(gameMode){

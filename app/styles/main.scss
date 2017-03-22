@@ -200,3 +200,60 @@ $bg-opcatity: .5;
 .match-lookup-table td{
   padding:5px;
 }
+table.match-players{
+  width:100%;
+}
+table.match-players td{
+  text-align:center;
+}
+
+table.match-players tr:nth-child(2) td.winner{
+  font-weight:bold;
+  color:#aea;
+}
+table.match-players tr:nth-child(2) td.loser{
+  font-weight:bold;
+  color:#eaa;
+}
+
+table.match-players tr:nth-child(1) td:nth-child(2){
+  color:#CCC;
+  font-weight:bold;
+  font-size:16px;
+}
+
+table.match-players tr:nth-child(4){
+  color:#DDF;
+  font-size:12px;
+}
+
+.match-team-name{
+  font-weight:bold;
+}
+.team-won:after{
+  content: " (Won)"
+}
+.team-lost:after{
+  content: " (Lost)"
+}
+
+.winning-team{
+  width:100%;
+  text-align:center;
+  display:block;
+  font-size:30px;
+  color:gold;
+  font-family: "Lucida Bright", Georgia, serif;
+  font-weight:bold;
+}
+.prediction-table{
+  width:100%;
+}
+.prediction-table td:nth-child(2){
+  width:300px;
+}
+.actor-image-large{
+  width:100px;
+  float:left;
+  margin:10px;
+}
