@@ -14,7 +14,9 @@ const vgLookup = {
     '*Grumpjaw*': 'Grumpjaw',
     '*Gwen*': 'Gwen',
     '*Hero009*': 'Krul',
+    '*Krul*': 'Krul',
     '*Hero010*': 'Skaarf',
+    '*Skaarf*': 'Skaarf',
     '*Hero016*': 'Rona',
     '*Idris*': 'Idris',
     '*Joule*': 'Joule',
@@ -30,6 +32,7 @@ const vgLookup = {
     '*Samuel*': 'Samuel',
     '*SAW*': 'SAW',
     '*Sayoc*': 'Taka',
+    '*Taka*': 'Taka',
     '*Skye*': 'Skye',
     '*Vox*': 'Vox'
   },
