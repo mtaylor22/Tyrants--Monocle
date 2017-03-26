@@ -1,2 +1,2 @@
 <h2>Select an Actor</h2>
-<img ng-repeat="actor in actors" ng-src="/images/actors/{{actor}}.png" class="actor-image" ng-click="closePlayerSelection(actor) || closeThisDialog()">
+<img ng-repeat="actor in actors" ng-src="/images/actors/{{actor|lowercase}}.png" class="actor-image" ng-click="closePlayerSelection(actor) || closeThisDialog()">

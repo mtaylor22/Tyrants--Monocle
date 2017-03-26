@@ -36,12 +36,12 @@
             </tr>
             <tr>
               <td ng-repeat="player in matches[0].players[0]">
-                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
+                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup|lowercase}}.png" class="actor-image">
               </td>
               <td ng-if="!matches[0].players[0][1]"></td>
               <td ng-if="!matches[0].players[0][2]"></td>
               <td ng-repeat="player in matches[0].players[1]">
-                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
+                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup|lowercase}}.png" class="actor-image">
               </td>
               <td ng-if="!matches[0].players[1][1]"></td>
               <td ng-if="!matches[0].players[1][2]"></td>
@@ -105,7 +105,7 @@
           Player Stats
         </div>
         <div class="nav-block-footer">
-          <img ng-src="/images/actors/{{selectedPlayer.actor|vgLookup}}.png" class="actor-image-large">
+          <img ng-src="/images/actors/{{selectedPlayer.actor|vgLookup|lowercase}}.png" class="actor-image-large">
           <!--{{selectedPlayer}}-->
           <h3>{{selectedPlayer.actor|vgLookup}} ({{selectedPlayer.player}})</h3>
           <table>

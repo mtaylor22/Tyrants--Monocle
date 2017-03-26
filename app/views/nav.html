@@ -53,7 +53,7 @@
           Simulate a Match
         </div>
         <div class="nav-block-footer">
-          <img ng-repeat="actor in actors" ng-click="openBuild(actor)" ng-src="/images/actors/{{actor}}.png" class="actor-image">
+          <img ng-repeat="actor in actors" ng-click="openBuild(actor)" ng-src="/images/actors/{{actor|lowercase}}.png" class="actor-image">
         </div>
       </div>
     </div>

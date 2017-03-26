@@ -30,20 +30,20 @@
           <div class="team-actors">
             <div class="team-actor-single">
               <div ng-if="teams.a.actors[0]">
-                <img ng-src="/images/actors/{{teams.a.actors[0].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[0].actor, 0)">
+                <img ng-src="/images/actors/{{teams.a.actors[0].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[0].actor, 0)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.a.actors[0]" ng-click="clickToOpen(0)">+</div>
             </div>
             <div class="team-actor-single">
               <div ng-if="teams.a.actors[1]">
-                <img ng-src="/images/actors/{{teams.a.actors[1].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[1].actor, 1)">
+                <img ng-src="/images/actors/{{teams.a.actors[1].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[1].actor, 1)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.a.actors[1]" ng-click="clickToOpen(1)">+</div>
             </div>
             <div class="team-actor-single">
 
               <div ng-if="teams.a.actors[2]">
-                <img ng-src="/images/actors/{{teams.a.actors[2].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[2].actor, 2)">
+                <img ng-src="/images/actors/{{teams.a.actors[2].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[2].actor, 2)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.a.actors[2]" ng-click="clickToOpen(2)">+</div>
             </div>
@@ -53,21 +53,21 @@
             <div class="team-actor-single">
 
               <div ng-if="teams.b.actors[0]">
-                <img ng-src="/images/actors/{{teams.b.actors[0].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[0].actor, 3)">
+                <img ng-src="/images/actors/{{teams.b.actors[0].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[0].actor, 3)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.b.actors[0]" ng-click="clickToOpen(3)">+</div>
             </div>
             <div class="team-actor-single">
 
               <div ng-if="teams.b.actors[1]">
-                <img ng-src="/images/actors/{{teams.b.actors[1].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[1].actor, 4)">
+                <img ng-src="/images/actors/{{teams.b.actors[1].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[1].actor, 4)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.b.actors[1]" ng-click="clickToOpen(4)">+</div>
             </div>
             <div class="team-actor-single">
 
               <div ng-if="teams.b.actors[2]">
-                <img ng-src="/images/actors/{{teams.b.actors[2].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[2].actor, 5)">
+                <img ng-src="/images/actors/{{teams.b.actors[2].actor|lowercase}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[2].actor, 5)">
               </div>
               <div class="team-actor-single-missing" ng-if="!teams.b.actors[2]" ng-click="clickToOpen(5)">+</div>
             </div>
