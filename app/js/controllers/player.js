@@ -8,6 +8,9 @@ function PlayerCtrl($scope, $stateParams, $state, $resource) {
   vm.title = 'Tyrant\'s Monocle!';
   $scope.actors = ['adagio', 'celeste', 'idris', 'lyra', 'rona', 'vox', 'alpha', 'flicker', 'joule', 'ozo', 'samuel', 'ardan', 'fortress', 'kestrel', 'petal', 'saw', 'baron', 'glaive', 'koshka', 'phinn', 'skaarf', 'blackfeather', 'grumpjaw', 'krul', 'reim', 'skye', 'catherine', 'gwen', 'lance', 'ringo', 'taka'];
   var playerId = $stateParams.playerId;
+  $scope.goHome = function(){
+    $state.go('Nav', {});
+  };
   $scope.getMatches = function(){
     var Match = $resource('http://localhost:8000/player/:playerId');
     var match = new Match();

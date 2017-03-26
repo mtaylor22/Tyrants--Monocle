@@ -12,12 +12,20 @@ function NavCtrl($scope, $state, $resource) {
     $state.go('Match', {matchId: matchId});
   };
 
+  $scope.goHome = function(){
+    $state.go('Nav', {});
+  };
+
   $scope.lookupMatchId = function(){
     $state.go('Match', {matchId: $scope.lookupMatchIdInput});
   };
 
   $scope.lookupPlayerId = function(){
     $state.go('Player', {playerId: $scope.lookupPlayerIdInput});
+  };
+
+  $scope.openBuild = function(actor){
+    $state.go('Build', {actor: actor});
   };
 
   $scope.getMatches = function(){
@@ -44,6 +52,12 @@ function NavCtrl($scope, $state, $resource) {
           startedAgo:moment().diff(moment(match.started), 'minutes')
         };
       });
+    });
+
+    var Stats = $resource('http://localhost:8000/stats');
+    var stats = new Stats();
+    stats.$get(function(response){
+      $scope.stats = response;
     });
   };
   $scope.getMatches();

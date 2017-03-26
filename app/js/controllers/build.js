@@ -2,7 +2,7 @@ angular.module('app.controllers')
   .controller('BuildCtrl', BuildCtrl);
 
   /* @ngInject */
-function BuildCtrl($scope, ngDialog, $resource) {
+function BuildCtrl($scope, ngDialog, $state, $resource, $stateParams) {
   // ViewModel
   const vm = this;
   $scope.Math = window.Math; // Provide JS Math
@@ -17,6 +17,11 @@ function BuildCtrl($scope, ngDialog, $resource) {
       actors: [null, null, null]
     }
   };
+
+  $scope.goHome = function(){
+    $state.go('Nav', {});
+  };
+
   $scope.matchType = 'casual';
   $scope.updateMatchType = function(matchType){
     $scope.matchType = matchType;
@@ -59,7 +64,7 @@ function BuildCtrl($scope, ngDialog, $resource) {
     $scope.selectedActorIndex = index;
   };
 
-  $scope.$watch('teams', function(newVal, oldVal){
+  $scope.$watch('teams', function(){
     if ($scope.isPredictionEligible())
       $scope.buildMatch();
   }, true);
@@ -140,9 +145,30 @@ function BuildCtrl($scope, ngDialog, $resource) {
         };
       });
 
-    console.log("Match: "+JSON.stringify(match));
-
   };
+  if ($stateParams.actor){
+    if ($stateParams.actor == 'saw') $stateParams.actor = 'SAW';
+    $scope.teams.a.actors[0] =
+      {actor: $stateParams.actor.capitalize(),
+        stats: {
+          'kills': 0,
+          'deaths': 0,
+          'assists': 0,
+          'turretCaptures': 0,
+          'skillTier': 0,
+          'nonJungleMinionKills': 0,
+          'minionKills': 0,
+          'level': 0,
+          'krakenCaptures': 0,
+          'karmaLevel': 0,
+          'jungleKills': 0,
+          'goldMineCaptures': 0,
+          'farm': 0,
+          'crystalMineCaptures': 0
+        }
+      };
+    $scope.selectActor($stateParams.actor.capitalize(), 0);
+  }
 }
 
 // function getGameMode(gameMode){

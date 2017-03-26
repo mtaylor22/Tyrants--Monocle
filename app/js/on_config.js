@@ -17,8 +17,14 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
       templateUrl: 'nav.html',
       title: 'Nav'
     })
+    .state('About', {
+      url: '/about',
+      controller: 'AboutCtrl',
+      templateUrl: 'about.html',
+      title: 'About'
+    })
     .state('Build', {
-      url: '/build',
+      url: '/build?actor',
       controller: 'BuildCtrl',
       templateUrl: 'build.html',
       title: 'Build'

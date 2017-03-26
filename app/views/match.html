@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row row-centered">
-    <div class="col-xs-12 col-centered header-title">
+    <div class="col-xs-12 col-centered header-title" ng-click="goHome()">
       Tyrant's Monocle <img style="margin-left: 20px; width:300px; height:100px;" src="/images/tyrants-monocle.png">
     </div>
   </div>
@@ -16,7 +16,7 @@
               <td colspan="3">
                 <span class="match-team-name" ng-class="{'team-won': matches[0].winner == 0, 'team-lost': matches[0].winner == 1}">Team A</span>
               </td>
-              <td rowspan="4">VS.</td>
+              <td rowspan="1"></td>
               <td colspan="3">
                 <span class="match-team-name" ng-class="{'team-won': matches[0].winner == 1, 'team-lost': matches[0].winner == 0}">Team B</span>
               </td>
@@ -25,25 +25,38 @@
               <td ng-repeat="player in matches[0].players[0]" ng-class="{'winner': matches[0].winner == 0, 'loser': matches[0].winner == 1}">
                 {{player.actor|vgLookup}}
               </td>
+              <td ng-if="!matches[0].players[0][1]"></td>
+              <td ng-if="!matches[0].players[0][2]"></td>
+              <td rowspan="3">VS.</td>
               <td ng-repeat="player in matches[0].players[1]" ng-class="{'winner': matches[0].winner == 1, 'loser': matches[0].winner == 0}">
                 {{player.actor|vgLookup}}
               </td>
+              <td ng-if="!matches[0].players[1][1]"></td>
+              <td ng-if="!matches[0].players[1][2]"></td>
             </tr>
             <tr>
               <td ng-repeat="player in matches[0].players[0]">
-                <img ng-click="selectPlayer(player.actor)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
+                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
               </td>
+              <td ng-if="!matches[0].players[0][1]"></td>
+              <td ng-if="!matches[0].players[0][2]"></td>
               <td ng-repeat="player in matches[0].players[1]">
-                <img ng-click="selectPlayer(player.actor)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
+                <img ng-click="selectPlayer(player.player)" ng-src="/images/actors/{{player.actor|vgLookup}}.png" class="actor-image">
               </td>
+              <td ng-if="!matches[0].players[1][1]"></td>
+              <td ng-if="!matches[0].players[1][2]"></td>
             </tr>
             <tr>
               <td ng-repeat="player in matches[0].players[0]">
                 {{player.player}}
               </td>
+              <td ng-if="!matches[0].players[0][1]"></td>
+              <td ng-if="!matches[0].players[0][2]"></td>
               <td ng-repeat="player in matches[0].players[1]">
                 {{player.player}}
               </td>
+              <td ng-if="!matches[0].players[1][1]"></td>
+              <td ng-if="!matches[0].players[1][2]"></td>
             </tr>
           </table>
         </div>
@@ -86,7 +99,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
       <div class="nav-block-container">
         <div class="nav-block-header">
@@ -140,14 +152,24 @@
           </table>
         </div>
       </div>
+
+      <div class="nav-block-container" ng-if="heroTips[selectedPlayer.actor]">
+        <div class="nav-block-header">
+          Dracary5’s Hero Tips
+        </div>
+        <div class="nav-block-footer">
+          {{heroTips[selectedPlayer.actor]}}
+        </div>
+      </div>
+
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered" ng-if="validInsightCount > 0">
       <div class="nav-block-container">
         <div class="nav-block-header">
           Insights for {{selectedPlayer.actor|vgLookup}}
         </div>
         <div class="nav-block-footer insight-block">
-          <div class="insight" ng-repeat="insight in matches[0].insights[selectedPlayer.actor].insights" ng-if="insight.impact > 1">
+          <div class="insight" ng-repeat="insight in matches[0].insights[selectedPlayer.actor].insights">
             <span class="insight-stat">{{insight.stat}}</span>
             <p class="insight-description">
               {{selectedPlayer.actor|vgLookup}} had a {{Math.abs(1 - insight.variation) * 100 | number:2}}% {{(insight.variation > 1) ? "higher" : "lower"}} {{insight.stat}} stat than the average winning {{selectedPlayer.actor|vgLookup}} player. Improving this statistic would increase the winning prediction by {{(insight.impact - 1) * 100 | number:2}}%

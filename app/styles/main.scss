@@ -112,6 +112,7 @@ $bg-opcatity: .5;
   width: 100%;
   //background-color:rgba(0, 0, 0, $bg-opcatity);
   margin:20px;
+  cursor:pointer;
 
 }
 
@@ -356,4 +357,7 @@ table.player-stats{
 }
 table.player-stats td{
   padding:5px;
+}
+span.stat-badge{
+  font-size:18px;
 }

@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-xs-12 col-centered header-title" ng-click="goHome()">
+      Tyrant's Monocle <img style="margin-left: 20px; width:300px; height:100px;" src="/images/tyrants-monocle.png">
+    </div>
+  </div>
+  <div class="row row-centered">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          What Does it Do?
+        </div>
+        <div class="nav-block-footer">
+          This application is intended to build prediction models for VainGlory matches. Our server queries the VainGlory API to gather statistics about users and matches which it uses to build a predictive model based on a rudimentary Naive Bayes classifier implementation. Wining matches train the predictive model for many of the statistics which the VainGlory API provides. <br>
+          <br><p>
+            There are several benefits to this approach:
+            <ul>
+              <li>It's learning as it goes</li>
+              <li>Very efficient processing</li>
+              <li>Avoiding bulk API scraping</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Direction
+        </div>
+        <div class="nav-block-footer">
+          The prediction algorithm for this application could likely be improved using additional machine-learning concepts. For example, the k-Nearest Neighbors algorithm could be employed as a strategy to classify matches which can be represented as N-dimensional vectors in N-dimensional hyperspace. However this approach may need to consider several different spaces. For example, it may increase accuracy to consider an 'Actor' space as well as a 'Player' space and a 'Team' space.
+          <br><p>This approach will be challenging for several reasons:
+          <ul>
+            <li>kNN algorithm requires a distance calculation which could be very challenging to represent on discrete variables, such as Actor</li>
+            <li>This approach will be much more expensive in terms of computation, as larger parts of the dataset will have to be brought into memory</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Stack
+        </div>
+        <div class="nav-block-footer">
+          <img style="float:right; height:190px;" src="/images/goldminer.jpg">
+          <h3>Front</h3>
+          This application is developed in Angular and built with Node/Gulp using the boilerplate project angularjs-gulp-browserify-boilterplate <a href="https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate">(link)</a>. This project's repository is hosted on GitHub @ mtaylor22/Tyrants--Monocle <a href="https://github.com/mtaylor22/gold-miner">(link)</a>.
+          <h3>Back</h3>
+          The backend application is developed in Node using Hapi, Mongodb, and Redis. The Bull <a href="https://www.npmjs.com/package/bull">(link)</a> package is used to ensure API requests are not exceeding the limit. This project is hosted on GitHub @ mtaylor22/gold-miner <a href="https://github.com/mtaylor22/gold-miner">(link)</a>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -18,6 +18,7 @@ const vgLookup = {
     '*Hero010*': 'Skaarf',
     '*Skaarf*': 'Skaarf',
     '*Hero016*': 'Rona',
+    '*Rona*': 'Rona',
     '*Idris*': 'Idris',
     '*Joule*': 'Joule',
     '*Kestrel*': 'Kestrel',
