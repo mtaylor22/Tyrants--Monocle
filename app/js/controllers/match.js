@@ -10,13 +10,16 @@ function MatchCtrl($scope, $stateParams, $state, $resource) {
   vm.title = 'Tyrant\'s Monocle!';
   $scope.actors = ['adagio', 'celeste', 'idris', 'lyra', 'rona', 'vox', 'alpha', 'flicker', 'joule', 'ozo', 'samuel', 'ardan', 'fortress', 'kestrel', 'petal', 'saw', 'baron', 'glaive', 'koshka', 'phinn', 'skaarf', 'blackfeather', 'grumpjaw', 'krul', 'reim', 'skye', 'catherine', 'gwen', 'lance', 'ringo', 'taka'];
   var matchId = $stateParams.matchId;
+  $scope.loading = false;
   $scope.goHome = function(){
     $state.go('Nav', {});
   };
   $scope.getMatches = function(){
     var Match = $resource('http://localhost:8000/match/:matchId');
     var match = new Match();
+    $scope.loading = true;
     match.$get({matchId: matchId}, function(response){
+      $scope.loading = false;
       $scope.matches = _.map(response.matches, function(match){
         // teams =>
         return {
