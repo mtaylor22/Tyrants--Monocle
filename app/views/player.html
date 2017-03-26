@@ -10,9 +10,9 @@
         <div class="nav-block-header">
           Recent Matches
         </div>
-        <div class="nav-block-footer">
+        <div class="nav-block-footer player-match-list">
           <table class="match-table">
-            <tr ng-repeat="match in matches | orderBy:'startedAgo'" ng-click="openMatch(match.id);">
+            <tr ng-repeat="match in matches " ng-click="openMatch(match.id);">
               <td>
                 <span class="match-started">{{match.startedAgo}}m ago </span>
               </td>
@@ -101,10 +101,10 @@
             </tr>
             <tr>
               <td>
-                <input type="text" class="form-control" placeholder="Player ID#" ng-model="lookupPlayerIdInput">
+                <input type="text" class="form-control" placeholder="Player ID#">
               </td>
               <td>
-                <button class="btn btn-primary" ng-click="lookupPlayerId()">Lookup</button>
+                <button class="btn btn-primary">Lookup</button>
               </td>
             </tr>
           </table>

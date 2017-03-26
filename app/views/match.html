@@ -144,10 +144,15 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
       <div class="nav-block-container">
         <div class="nav-block-header">
-          Insights
+          Insights for {{selectedPlayer.actor|vgLookup}}
         </div>
-        <div class="nav-block-footer">
-
+        <div class="nav-block-footer insight-block">
+          <div class="insight" ng-repeat="insight in matches[0].insights[selectedPlayer.actor].insights" ng-if="insight.impact > 1">
+            <span class="insight-stat">{{insight.stat}}</span>
+            <p class="insight-description">
+              {{selectedPlayer.actor|vgLookup}} had a {{Math.abs(1 - insight.variation) * 100 | number:2}}% {{(insight.variation > 1) ? "higher" : "lower"}} {{insight.stat}} stat than the average winning {{selectedPlayer.actor|vgLookup}} player. Improving this statistic would increase the winning prediction by {{(insight.impact - 1) * 100 | number:2}}%
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,171 @@
+<div class="container">
+  <div class="row row-centered">
+    <div class="col-xs-12 col-centered header-title">
+      Tyrant's Monocle <img style="margin-left: 20px; width:300px; height:100px;" src="/images/tyrants-monocle.png" ng-click="buildMatch()">
+    </div>
+  </div>
+  <div class="row row-centered">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Match Types
+        </div>
+        <div class="nav-block-footer">
+          <table class="match-types-table">
+            <tr>
+              <td><div class="match-type" ng-class="{'match-type-selected': matchType == 'casual'}" ng-click="updateMatchType('casual')">Casual</div></td>
+              <td><div class="match-type" ng-class="{'match-type-selected': matchType == 'blitz'}" ng-click="updateMatchType('blitz')">Blitz</div></td>
+              <td><div class="match-type" ng-class="{'match-type-selected': matchType == 'ranked'}" ng-click="updateMatchType('ranked')">Ranked</div></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Actors
+        </div>
+        <div class="nav-block-footer" style="height:100px;">
+          <div class="team-actors">
+            <div class="team-actor-single">
+              <div ng-if="teams.a.actors[0]">
+                <img ng-src="/images/actors/{{teams.a.actors[0].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[0].actor, 0)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.a.actors[0]" ng-click="clickToOpen(0)">+</div>
+            </div>
+            <div class="team-actor-single">
+              <div ng-if="teams.a.actors[1]">
+                <img ng-src="/images/actors/{{teams.a.actors[1].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[1].actor, 1)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.a.actors[1]" ng-click="clickToOpen(1)">+</div>
+            </div>
+            <div class="team-actor-single">
+
+              <div ng-if="teams.a.actors[2]">
+                <img ng-src="/images/actors/{{teams.a.actors[2].actor}}.png" class="actor-image" ng-click="selectActor(teams.a.actors[2].actor, 2)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.a.actors[2]" ng-click="clickToOpen(2)">+</div>
+            </div>
+          </div>
+          <div class="vs-text">VS</div>
+          <div class="team-actors">
+            <div class="team-actor-single">
+
+              <div ng-if="teams.b.actors[0]">
+                <img ng-src="/images/actors/{{teams.b.actors[0].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[0].actor, 3)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.b.actors[0]" ng-click="clickToOpen(3)">+</div>
+            </div>
+            <div class="team-actor-single">
+
+              <div ng-if="teams.b.actors[1]">
+                <img ng-src="/images/actors/{{teams.b.actors[1].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[1].actor, 4)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.b.actors[1]" ng-click="clickToOpen(4)">+</div>
+            </div>
+            <div class="team-actor-single">
+
+              <div ng-if="teams.b.actors[2]">
+                <img ng-src="/images/actors/{{teams.b.actors[2].actor}}.png" class="actor-image" ng-click="selectActor(teams.b.actors[2].actor, 5)">
+              </div>
+              <div class="team-actor-single-missing" ng-if="!teams.b.actors[2]" ng-click="clickToOpen(5)">+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="selectedActor" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Player Stats - <span style="text-transform: capitalize">{{selectedActor}}</span>
+        </div>
+        <div class="nav-block-footer">
+          <table class="player-stats">
+            <tr>
+              <td>Kills</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.kills" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>Deaths</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.deaths" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>Assists</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.assists" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>TurretCaptures</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.turretCaptures" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>SkillTier</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.skillTier" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>NonJungleMinionKills</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.nonJungleMinionKills" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>MinionKills</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.minionKills" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>Level</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.level" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>KrakenCaptures</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.krakenCaptures" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>KarmaLevel</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.karmaLevel" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>JungleKills</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.jungleKills" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>GoldMineCaptures</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.goldMineCaptures" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>Farm</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.farm" min="0" value="0"></td>
+            </tr>
+
+            <tr>
+              <td>CrystalMineCaptures</td>
+              <td><input type="number" class="form-control" ng-model="teams[(selectedActorIndex >= 3) ? 'b' : 'a'].actors[(selectedActorIndex >= 3) ? selectedActorIndex - 3 : selectedActorIndex].stats.crystalMineCaptures" min="0" value="0"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div ng-if="prediction" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
+      <div class="nav-block-container">
+        <div class="nav-block-header">
+          Prediction
+        </div>
+        <div class="nav-block-footer">
+          <ng-gauge size="130" type="full" thick="5" value="prediction.a" cap="round" label="Team A"  foreground-color="#F88" background-color="rgba(255,255,255, 0.4)" append="%"></ng-gauge>
+          <ng-gauge size="130" type="full" thick="5" value="prediction.b" cap="round" label="Team B"  foreground-color="#88F" background-color="rgba(255,255,255, 0.4)" append="%"></ng-gauge>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

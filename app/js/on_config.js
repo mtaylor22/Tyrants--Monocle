@@ -11,23 +11,29 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider, $compil
   });
 
   $stateProvider
-    .state('Home', {
-      url: '/',
-      controller: 'SplashCtrl as splash',
-      templateUrl: 'splash.html',
-      title: 'Splash'
-    })
     .state('Nav', {
-      url: '/nav',
+      url: '/',
       controller: 'NavCtrl',
       templateUrl: 'nav.html',
       title: 'Nav'
+    })
+    .state('Build', {
+      url: '/build',
+      controller: 'BuildCtrl',
+      templateUrl: 'build.html',
+      title: 'Build'
     })
     .state('Match', {
       url: '/match/:matchId',
       controller: 'MatchCtrl',
       templateUrl: 'match.html',
       title: 'Match'
+    })
+    .state('Player', {
+      url: '/player/:playerId',
+      controller: 'PlayerCtrl',
+      templateUrl: 'player.html',
+      title: 'Player'
     });
 
   $urlRouterProvider.otherwise('/');

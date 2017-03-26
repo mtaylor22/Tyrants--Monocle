@@ -22,6 +22,7 @@ const requires = [
   'app.services',
   'app.directives',
   require('angular-resource'),
+  require('ng-dialog'),
   'angularjs-gauge'
 ];
 

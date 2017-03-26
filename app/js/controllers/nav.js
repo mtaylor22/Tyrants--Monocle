@@ -12,6 +12,14 @@ function NavCtrl($scope, $state, $resource) {
     $state.go('Match', {matchId: matchId});
   };
 
+  $scope.lookupMatchId = function(){
+    $state.go('Match', {matchId: $scope.lookupMatchIdInput});
+  };
+
+  $scope.lookupPlayerId = function(){
+    $state.go('Player', {playerId: $scope.lookupPlayerIdInput});
+  };
+
   $scope.getMatches = function(){
     // var matches = $resource('/echo/json/:fakeOptionalParameter');
 

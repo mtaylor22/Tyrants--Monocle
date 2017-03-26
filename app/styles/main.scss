@@ -6,6 +6,7 @@ html, body, #root {
   height: 100%;
   font-family: 'Open Sans', sans-serif;
   background-color: #1c3909;
+
 }
 
 body, h1, h2, h3 {
@@ -256,4 +257,103 @@ table.match-players tr:nth-child(4){
   width:100px;
   float:left;
   margin:10px;
+}
+.player-match-list{
+  max-height:600px;
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track, div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb, div::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+.insight{
+
+}
+.insight-stat{
+  font-size: 22px;
+  width:100%;
+  text-decoration:underline;
+  text-transform: capitalize;
+}
+.insight-description{
+
+}
+
+.insight-block{
+  max-height:600px;
+  overflow-y: auto;
+}
+
+.team-actor-single {
+  width: 70px;
+  float: left;
+  margin: 5px;
+  height: 70px;
+  cursor:pointer;
+}
+.team-actor-single-missing:hover{
+  border: 2px solid #FFF;
+  background-color:rgba(0, 0, 0, 0.15);
+}
+.team-actor-single-missing{
+  background-color:rgba(0, 0, 0, 0.35);
+  width: 100%;
+  height: 100%;
+  vertical-align:middle;
+  text-align:center;
+  font-size:32px;
+  line-height:70px;
+  margin:0;
+  border:2px solid #333;
+  padding:0;
+}
+.vs-text {
+  height:70px;
+  float:left;
+  line-height:80px;
+  margin-left:10px;
+  margin-right:10px;
+  width:20px;
+}
+.match-types-table{
+  width:100%;
+}
+
+table.match-types-table td{
+  text-align:center;
+}
+.match-type{
+  margin:5px;
+  border:2px solid #333;
+  padding:5px;
+  height:70px;
+  font-size:18px;
+  line-height:60px;
+  background-color:rgba(0, 0, 0, 0.35);
+  cursor:pointer;
+}
+
+.match-type:hover{
+  border: 2px solid #FFF;
+  background-color:rgba(0, 0, 0, 0.15);
+}
+
+.match-type.match-type-selected{
+  background-color:rgba(255, 255, 255, 0.15);
+}
+
+table.player-stats{
+  width:100%;
+}
+table.player-stats td{
+  padding:5px;
 }
