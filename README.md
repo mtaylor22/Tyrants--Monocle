@@ -3,5 +3,10 @@
 Tyrant's Monocle
 =====================================
 
-The Frontend application for a VainGlory predictor Website. 
+The Frontend application for a Vainglory predictor Website. 
 
+Tyrant's Monocle is written in Angular and built using Gulp using the boilerplate [angularjs-gulp-browserify-boilerplate](https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate). 
+
+This project is not created or maintained by Vainglory or Super Evil Megacorp
+
+For more information visit [www.tyrantsmonocle.com/](http://www.tyrantsmonocle.com/)
