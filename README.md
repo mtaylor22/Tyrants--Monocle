@@ -1,6 +1,6 @@
 Tyrant's Monocle
 =====================================
-<img align="right" height="300" src="https://raw.github.com/mtaylor22/Tyrants--Monocle/master/app/images/tyrants-monocle.png">
+<img align="right" width="300" src="https://raw.github.com/mtaylor22/Tyrants--Monocle/master/app/images/tyrants-monocle.png">
 
 The Frontend application for a Vainglory predictor Website. The backend component for this application is hosted at [mtaylor22/gold-miner](https://github.com/mtaylor22/gold-miner).
 
