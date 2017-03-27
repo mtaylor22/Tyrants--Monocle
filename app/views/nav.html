@@ -15,26 +15,7 @@
     </div>
   </div>
 
-  <div ng-if="loading">
 
-    <div class="row row-centered">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-centered">
-        <div class="nav-block-container">
-          <div class="nav-block-header">
-            Loading
-          </div>
-          <div class="nav-block-footer">
-            <h3>We're Currently Loading Your Results</h3>
-            <p>
-              Limiting to 10 API requests per minute.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div ng-if="!loading">
     <div class="row row-centered">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-centered">
         <div class="nav-block-container">
@@ -100,10 +81,11 @@
               </tr>
               <tr>
                 <td>
-                  <input type="text" class="form-control" ng-model="lookupMatchIdInput" placeholder="Match ID#">
+                  {{input.match}}
+                  <input type="text" class="form-control" ng-model="input.match" placeholder="Match ID#">
                 </td>
                 <td>
-                  <button class="btn btn-primary" ng-click="lookupMatchId()">Lookup</button>
+                  <button class="btn btn-primary" ng-click="lookupMatchId('{{input.match}}')">Lookup</button>
                 </td>
               </tr>
             </table>
@@ -132,10 +114,10 @@
               </tr>
               <tr>
                 <td>
-                  <input type="text" class="form-control" placeholder="Player ID#" ng-model="lookupPlayerIdInput">
+                  <input type="text" class="form-control" placeholder="Player ID#" ng-model="input.player">
                 </td>
                 <td>
-                  <button class="btn btn-primary" ng-click="lookupPlayerId()">Lookup</button>
+                  <button class="btn btn-primary" ng-click="lookupPlayerId('{{input.player}}')">Lookup</button>
                 </td>
               </tr>
             </table>
@@ -144,4 +126,3 @@
       </div>
     </div>
   </div>
-</div>

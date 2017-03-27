@@ -16,12 +16,20 @@ function NavCtrl($scope, $state, $resource) {
     $state.go('Nav', {});
   };
 
-  $scope.lookupMatchId = function(){
-    $state.go('Match', {matchId: $scope.lookupMatchIdInput});
+  $scope.lookupMatchIdInput='';
+  $scope.lookupPlayerIdInput='';
+
+  $scope.input = {
+    match: '',
+    player: ''
   };
 
-  $scope.lookupPlayerId = function(){
-    $state.go('Player', {playerId: $scope.lookupPlayerIdInput});
+  $scope.lookupMatchId = function(id){
+    $state.go('Match', {matchId: $scope.input.match});
+  };
+
+  $scope.lookupPlayerId = function(id){
+    $state.go('Player', {playerId: $scope.input.player});
   };
 
   $scope.openBuild = function(actor){
